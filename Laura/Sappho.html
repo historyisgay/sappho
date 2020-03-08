@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<title>Random Sappho</title>
+<!--<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tangerine" />-->
+<style>
+	a{
+		color: purple; 
+		text-decoration: none;
+		font-family: Tangerine; 
+		font-size: 23px; 
+		font-style: normal; 
+		font-variant: normal; 
+		font-weight: 400; 
+		line-height: 23px;
+	}
+
+</style>
+<script src="./anime.js"></script>
+</head>
+<body>
+	<div style="float:left; width:50%">					
+		<label for="fragmentAmount">Number of Fragments</label>
+		<input name="fragmentAmount" id="fragmentAmount" type="number" value="6"/>
+		<br>
+		<button onClick="generate();">Wax Poetic</button>
+		<br>
+		<p id="inline" class="poem">Welcome to the Sappho Thingy Click the button, please.</p>
+		<div id="fragments"></div>
+	</div>
+	<div style="float:right; width:49%">
+		<img src="sappho-sunnies.jpg">
+	</div>
+	<script type='text/javascript'>
+	var inlineJson = '[{"fragment":"8","text":"Atthis for you "},{"fragment":"12","text":"thought barefoot "},{"fragment":"24C","text":" we live the opposite daring "},{"fragment":"24D","text":" in a thin voice "},{"fragment":"25","text":" quit luxurious woman "},{"fragment":"29A ","text":" deep sound "},{"fragment":"29B","text":" lady "},{"fragment":"29C","text":"robes necklaces for Gorgo "},{"fragment":"29H","text":" for Gyrinno "},{"fragment":"32","text":"who honored me by giving their works "},{"fragment":"33","text":"if only I&comma; O goldcrowned Aphrodite&comma; could win this lot "},{"fragment":"35","text":"you either Kypros or Paphos or Panormos "},{"fragment":"36","text":"I long and seek after "},{"fragment":"38","text":"you burn me "},{"fragment":"40","text":"but I to you of a white goat and I will pour wine over "},{"fragment":"45","text":"as long as you want "},{"fragment":"46","text":" and I on a soft pillow will lay down my limbs "},{"fragment":"52","text":"I would not think to touch the sky with two arms "},{"fragment":"54","text":"having come from heaven wrapped in a purple cloak "},{"fragment":"59","text":" loves new "},{"fragment":"61","text":"they became for not "},{"fragment":"68B","text":" playing for me harsh "},{"fragment":"69","text":" sinful "},{"fragment":"74A","text":" goatherd roses "},{"fragment":"74B","text":" longing "},{"fragment":"74C","text":" sweat "},{"fragment":"80","text":" all but different hair "},{"fragment":"85A","text":" prosperous to listen "},{"fragment":"85B","text":" like an old man "},{"fragment":"87B","text":"anxiety ground "},{"fragment":"87C","text":" daring "},{"fragment":"87D","text":" youth "},{"fragment":"87E","text":" queen "},{"fragment":"87F","text":" to you horse "},{"fragment":"93","text":" I have of girls "},{"fragment":"100","text":"and with delicate woven cloths covered her up well "},{"fragment":"103Ab","text":"to Kypris "},{"fragment":"103Cb","text":" they heard maidens "},{"fragment":"104","text":"of all stars the most beautiful "},{"fragment":"107","text":"do I still yearn for my virginity? "},{"fragment":"108","text":"O beautiful O graceful one "},{"fragment":"109","text":"we shall give&comma; says father "},{"fragment":"117A","text":"of polished doors "},{"fragment":"119","text":"cloth dripping "},{"fragment":"122","text":"gathering flowers so very delicate a girl "},{"fragment":"123","text":"just now goldsandaled Dawn "},{"fragment":"124","text":"and you yourself Kalliope "},{"fragment":"125","text":"I used to weave crowns "},{"fragment":"126","text":"may you sleep on the breast of your delicate friend "},{"fragment":"129A","text":"but me you have forgotten "},{"fragment":"129B","text":"or you love some man more than me "},{"fragment":"142","text":"Leto and Niobe were beloved friends "},{"fragment":"143","text":"and gold chickpeas were growing on the banks "},{"fragment":"144","text":"to those who have quite had their fill of Gorgo "},{"fragment":"146","text":"neither for me honey nor the honey bee "},{"fragment":"152","text":"mingled with all kinds of colors "},{"fragment":"153","text":"girl sweetvoiced "},{"fragment":"157","text":"lady Dawn "},{"fragment":"159","text":"both you and my servant Eros "},{"fragment":"162","text":"with what eyes? "},{"fragment":"163","text":"my darling one "},{"fragment":"164","text":"she summons her son "},{"fragment":"165","text":"that man seems to himself "},{"fragment":"167","text":"whiter by far than an egg "},{"fragment":"168","text":"O for Adonis "},{"fragment":"168A","text":"who loves children more than Gello "},{"fragment":"168C","text":" spangled is the earth with her crowns "},{"fragment":"169","text":"I would lead "},{"fragment":"169A","text":"wedding gifts "},{"fragment":"170","text":"Aiga "},{"fragment":"171","text":"non-evil "},{"fragment":"172","text":"paingiver "},{"fragment":"173","text":"a vine that grows up trees "},{"fragment":"174","text":"channel "},{"fragment":"175","text":"dawn "},{"fragment":"176","text":"lyre lyre lyre "},{"fragment":"177","text":"transparent dress "},{"fragment":"179","text":"makeup bag "},{"fragment":"180","text":"holder "},{"fragment":"181","text":"crossable "},{"fragment":"182","text":"I might go "},{"fragment":"183","text":"downrushing "},{"fragment":"184","text":"danger "},{"fragment":"185","text":"honeyvoiced "},{"fragment":"186","text":"Medeia "},{"fragment":"187","text":"of the Muses "},{"fragment":"188","text":"mythweaver "},{"fragment":"189","text":"soda "},{"fragment":"190","text":"manyskilled "},{"fragment":"191","text":"celery "},{"fragment":"192","text":"gold anklebone cups "},{"fragment":"87F","text":" to you horse "}]';
+	var googleStart = "https://www.google.com/search?q=sappho+fragment+";
+	var googleEnd = "&sxsrf=ACYBGNRs5SPR8tdyPYwYKfQUsMCwMHurxw:1583119192972&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj-kInJ6vrnAhX9mXIEHVzeCq8Q_AUoAXoECBgQAw&biw=1396&bih=686"
+	function generate()
+	{
+		var inlineTag = document.getElementById("inline")
+		var fragmentTag = document.getElementById("fragments")
+		inlineTag.innerHTML = "";
+		
+		//we mangle these between goes to keep from getting dups
+		var inline = JSON.parse(inlineJson);
+		
+		var inlineProse = "";
+		var fragments = ""
+		var frags = document.getElementById("fragmentAmount").value;
+		for(var i = 0; i < frags && inline.length > 0; i++) 
+		{
+			var index = getIndex(inline.length);
+			inlineProse = inlineProse + inline[index].text;
+			fragments = fragments + "<p class='fragmentText'>Fragment " + inline[index].fragment + ": " + inline[index].text + "</p>";
+			remove(inline,index);
+		}
+		fragmentTag.innerHTML = fragments;
+		ShowMessage(inlineTag, inlineProse);
+	}
+    
+	function ShowMessage(tag, message)
+	{
+		tag.style.opacity = 0;
+		tag.innerHTML = message;
+		var textWrapper = document.querySelector('.poem');
+		textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+		anime.timeline({loop: false})
+		  .add({
+			targets: '.poem .letter',
+			opacity: [0,1],
+			easing: "easeInOutQuad",
+			duration: 750,
+			delay: (el, i) => 50 * (i+1)
+		  });
+		  tag.style.opacity = 1;
+	}
+	
+	function ShowFrag(fragment)
+	{
+		alert(fragment);
+	}
+	
+	function remove(arr,index)
+	{
+		arr.splice(index,1);
+	}
+    
+	function getIndex(lim)
+	{
+		var index = Math.floor(Math.random() * lim);
+		if(index >= lim)
+			return lim -1;
+			
+		return index;
+	}    
+
+</script>
+</body>
+</html>
