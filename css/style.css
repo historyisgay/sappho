@@ -1,0 +1,171 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #715496;
+    color: #cecece;
+    font-family: Quicksand, sans-serif;
+}
+
+#container > div {
+    width: 50%;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/**************** LEFT SIDE / POEM CONTENT *******************/
+.content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100%;
+    height: auto;
+    text-align: center;
+}
+.content > div {
+    padding: 16px;
+    width: calc(100% - 32px);
+}
+
+/************** RIGHT SIDE / IMAGE *****************/
+.imageContainer {
+    overflow: hidden;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.imageContainer img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+/**************** HEADER *****************/
+#header {
+    text-align: right;
+}
+
+#header h1 {
+    font-size: 20px;
+    display:inline-block;
+    float: left;
+    height: 40px;
+    margin: 8px;
+}
+
+#header div {
+    display: inline-block;
+    width: auto;
+}
+
+#header a {
+    display: inline-block;
+    border: 2px solid #cecece;
+    color: #cecece;
+    padding: 10px 15px;
+    margin: 0 8px 16px 8px;
+    border-radius: 21px;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+}
+    #header a:hover {
+        background-color: #5a4279;
+    }
+    #header a:focus, #header a:active {
+        background-color: transparent;
+    }
+
+#header label {
+    color: #927DAE;
+    font-weight: bold;
+}
+#header input {
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    text-align: center;
+    border: 0;
+    background-color: #5A4279;
+    color: inherit;
+    margin: 0 8px 16px 8px;
+}
+
+#header ul {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+#header ul li {
+    display: inline-block;
+}
+
+/* Hide number input arrows */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+/************** MAIN *******************/
+
+#main {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    flex-grow: 1;
+    word-break: break-word;
+}
+#main #poem {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+#main #poem span {
+    display: block;
+    margin-bottom: 20px;
+    animation: fadein 2s;
+}
+#main #poem span:last-child {
+    margin-bottom: 0;
+}
+
+
+/**************** MEDIA QUERIES **********************/
+@media screen and (max-width: 1000px) {
+    #header > *, #header div {
+        display: block;
+        width: 100%;
+        text-align: center;
+        
+    }
+    #header h1 {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #container > div {
+        width: 100%;
+        height: auto;
+        min-height: auto;
+    }
+    
+    .imageContainer {
+        position: static;
+    }
+}
+
+/************* ANIMATIOMS **********************/
+@keyframes fadein {
+    0% { opacity: 0; }
+    100%   { opacity: 1; }
+}
