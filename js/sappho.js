@@ -40,7 +40,7 @@ function ShowMessage(tag, message)
 {
 	tag.style.opacity = 0;
 	tag.innerHTML = message;
-	var textWrapper = document.querySelector(tag.id + ' span');
+	var textWrapper = document.querySelector('#' + tag.id + ' span');
 	textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 	anime.timeline({loop: false})
 	  .add({
