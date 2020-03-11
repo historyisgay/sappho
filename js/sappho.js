@@ -33,7 +33,7 @@ function generate(poem, fragments, number)
 		remove(inline,index);
 	}
 	//fragmentTag.innerHTML = fragmentsHtml;
-	inlineTaginnerHTML = message;
+	inlineTag.innerHTML = message;
 }
 
 function remove(arr,index)
