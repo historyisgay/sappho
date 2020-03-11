@@ -28,12 +28,12 @@ function generate(poem, fragments, number)
 	for(var i = 0; i < frags && inline.length > 0; i++) 
 	{
 		var index = getIndex(inline.length);
-		inlineProse = inlineProse + inline[index].text;
+		inlineProse = inlineProse + "<span>" + inline[index].text + "</span>";
 		fragmentsHtml = fragmentsHtml + "<p class='fragmentText'>Fragment " + inline[index].fragment + ": " + inline[index].text + "</p>";
 		remove(inline,index);
 	}
 	//fragmentTag.innerHTML = fragmentsHtml;
-	ShowMessage(inlineTag, "<p>" + inlineProse + "</p>");
+	ShowMessage(inlineTag, inlineProse);
 }
 
 function ShowMessage(tag, message)
