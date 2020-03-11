@@ -33,24 +33,7 @@ function generate(poem, fragments, number)
 		remove(inline,index);
 	}
 	//fragmentTag.innerHTML = fragmentsHtml;
-	ShowMessage(inlineTag, inlineProse);
-}
-
-function ShowMessage(tag, message)
-{
-	tag.style.opacity = 0;
-	tag.innerHTML = message;
-	var textWrapper = document.querySelector('#' + tag.id + ' span');
-	textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter' style='display:inline;'>$&</span>");
-	anime.timeline({loop: false})
-	  .add({
-		targets: '.letter',
-		opacity: [0,1],
-		easing: "easeInOutQuad",
-		duration: 600,
-		delay: (el, i) => 50 * (i+1)
-	  });
-	  tag.style.opacity = 1; 
+	inlineTaginnerHTML = message;
 }
 
 function remove(arr,index)
