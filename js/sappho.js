@@ -41,10 +41,10 @@ function ShowMessage(tag, message)
 	tag.style.opacity = 0;
 	tag.innerHTML = message;
 	var textWrapper = document.querySelector('#' + tag.id + ' span');
-	textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+	textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter' style='display:inline;'>$&</span>");
 	anime.timeline({loop: false})
 	  .add({
-		targets: '.poem .letter',
+		targets: '.letter',
 		opacity: [0,1],
 		easing: "easeInOutQuad",
 		duration: 600,
