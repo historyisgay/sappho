@@ -24,7 +24,7 @@ function generate(poem, fragments, number)
 	
 	var inlineProse = "";
 	var fragmentsHtml = ""
-	var frags = document.getElementById("number").value;
+	var frags = document.getElementById(number).value;
 	for(var i = 0; i < frags && inline.length > 0; i++) 
 	{
 		var index = getIndex(inline.length);
