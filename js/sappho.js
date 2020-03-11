@@ -38,9 +38,9 @@ function generate(poem, fragments, number)
 
 function ShowMessage(tag, message)
 {
-	//tag.style.opacity = 0;
+	tag.style.opacity = 0;
 	tag.innerHTML = message;
-	/* var textWrapper = document.querySelector('.poem');
+	var textWrapper = document.querySelector('.poem span');
 	textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 	anime.timeline({loop: false})
 	  .add({
@@ -50,7 +50,7 @@ function ShowMessage(tag, message)
 		duration: 600,
 		delay: (el, i) => 50 * (i+1)
 	  });
-	  tag.style.opacity = 1; */
+	  tag.style.opacity = 1; 
 }
 
 function remove(arr,index)
