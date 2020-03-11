@@ -4,17 +4,25 @@ var googleEnd = "&sxsrf=ACYBGNRs5SPR8tdyPYwYKfQUsMCwMHurxw:1583119192972&source=
 
 function getJson()
 {
-	fetch("./js/static.json").then(data => { 
-        if(data.ok) 
-		{
-            inline = data.json();
-        }
-		else
-		{
-			console.log("hmm could not get json data");
-			inline = "[]";
-		}
-    });
+	// fetch("./js/static.json").then(data => { 
+        // if(data.ok) 
+		// {
+            // inline = data.json();
+        // }
+		// else
+		// {
+			// console.log("hmm could not get json data");
+			// inline = "[]";
+		// }
+    // });
+	
+	fetch('./js/static.json')
+	  .then((response) => {
+		return response.json();
+	  })
+	  .then((data) => {
+		console.log(data);
+	  });
 }
 
 function generate(poem, fragments, number)
