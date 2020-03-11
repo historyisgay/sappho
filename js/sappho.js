@@ -4,7 +4,7 @@ var googleEnd = "&sxsrf=ACYBGNRs5SPR8tdyPYwYKfQUsMCwMHurxw:1583119192972&source=
 
 function getJson()
 {
-	fetch("/js/static.json").then(data => { 
+	fetch("./js/static.json").then(data => { 
         if(data.ok) 
 		{
             inline = data.json();
@@ -20,7 +20,7 @@ function getJson()
 function generate(poem, fragments, number)
 {
 	var inlineTag = document.getElementById(poem)
-	var fragmentTag = document.getElementById(fragments)
+	//var fragmentTag = document.getElementById(fragments)
 	inlineTag.innerHTML = "";
 	
 	//we mangle these between goes to keep from getting dups
@@ -28,7 +28,7 @@ function generate(poem, fragments, number)
 	
 	var inlineProse = "";
 	var fragmentsHtml = ""
-	var frags = document.getElementById("fragmentAmount").value;
+	var frags = document.getElementById("number").value;
 	for(var i = 0; i < frags && inline.length > 0; i++) 
 	{
 		var index = getIndex(inline.length);
@@ -36,7 +36,7 @@ function generate(poem, fragments, number)
 		fragmentsHtml = fragmentsHtml + "<p class='fragmentText'>Fragment " + inline[index].fragment + ": " + inline[index].text + "</p>";
 		remove(inline,index);
 	}
-	fragmentTag.innerHTML = fragmentsHtml;
+	//fragmentTag.innerHTML = fragmentsHtml;
 	ShowMessage(inlineTag, "<p>" + inlineProse + "</p>");
 }
 
