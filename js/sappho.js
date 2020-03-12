@@ -10,6 +10,7 @@ function getJson()
 	  })
 	  .then((data) => {
 		inlineJson = JSON.stringify(data);
+		generate();
 	  });
 }
 
@@ -31,7 +32,7 @@ function generate()
 	for(var i = 0; i < frags && inline.length > 0; i++) 
 	{
 		var index = getIndex(inline.length);
-		inlineProse = inlineProse + "<span>" + formatText(inline[index].text) + "</span>";
+		inlineProse = inlineProse + "<span>" + formatText(inline[index].text, 0) + "</span>";
 		//fragmentsHtml = fragmentsHtml + "<p class='fragmentText'>Fragment " + inline[index].fragment + ": " + inline[index].text + "</p>";
 		remove(inline,index);
 	}
@@ -42,7 +43,11 @@ function generate()
 function formatText(words, counter)
 {
 	if(counter == 0)
-		return words.text[0].toUpperCase() + words.slice(1);
+	{
+		let trimmed = words.trim();
+		return " " + trimmed[0].toUpperCase() + trimmed.slice(1) + " ";
+	}
+		
 	
 	return words;
 }
