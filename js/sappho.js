@@ -24,7 +24,7 @@ function generate()
 	
 	var inlineProse = "";
 	//var fragmentsHtml = ""
-	var frags = document.getElementById(fragments).value;
+	var frags = document.getElementById("fragments").value;
 	if(frags < 1)
 		frags = 1;
 	
