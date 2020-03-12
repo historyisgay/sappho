@@ -153,6 +153,7 @@ input[type=number] {
     padding: 120px 150px;
     position: relative;
     font-family: 'Roboto Slab', serif;
+    max-width: 800px;
 }
 #poem::before, #poem::after {
     border-top: 1px solid #cecece;
@@ -210,6 +211,7 @@ input[type=number] {
 
     #header h1 {
         width: 100%;
+        margin: 8px 0;
     }
 
     #header > * {
