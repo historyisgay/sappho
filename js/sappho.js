@@ -31,12 +31,20 @@ function generate()
 	for(var i = 0; i < frags && inline.length > 0; i++) 
 	{
 		var index = getIndex(inline.length);
-		inlineProse = inlineProse + "<span>" + inline[index].text + "</span>";
+		inlineProse = inlineProse + "<span>" + formatText(inline[index].text) + "</span>";
 		//fragmentsHtml = fragmentsHtml + "<p class='fragmentText'>Fragment " + inline[index].fragment + ": " + inline[index].text + "</p>";
 		remove(inline,index);
 	}
 	//fragmentTag.innerHTML = fragmentsHtml;
 	inlineTag.innerHTML = inlineProse;
+}
+
+function formatText(words, counter)
+{
+	if(counter == 0)
+		return words.text[0].toUpperCase() + words.slice(1);
+	
+	return words;
 }
 
 function remove(arr,index)
