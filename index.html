@@ -8,8 +8,7 @@
 
 	<link rel="shortcut icon" type="image/png" href="./img/favicon.ico"/>
 	<link href="css/style.css" rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700&display=swap" rel="stylesheet">
-
+	<link href="https://fonts.googleapis.com/css?family=Coustard|Quicksand|Roboto+Slab&display=swap" rel="stylesheet">
 	<script src="./js/sappho.js"></script>
 </head>
 <body>
@@ -21,7 +20,7 @@
 	
 	PS I will tots delete this later.
 	-->
-
+	<div id="background"></div>
 	<div id="container">
 		<div class="content">
 			<div id="header">
@@ -31,17 +30,24 @@
 						<input type="number" value="3" min="1" max="99" id="fragments" name="fragments" />
 					</div>
 					<ul>
-						<li><a href="#" onclick="generate()">Generate Poem</a></li>
+						<li><a href="#" onclick="generate('poem','','fragments')">Generate Poem</a></li>
 					</ul>
 			</div>
 			<div id="main">
-				<p id="poem"></p>
+				<p id="poem">
+					<b>"</b>
+					<!-- Populate fragments into these spans. They will later contain an extra element with fragment number and stuff, probably. -->
+					<span>Lorem ipsum</span>
+					<span>dolor sit amet</span>
+					<span>consectetur adipisicing elit</span>
+				</p>
 			</div>
 			<div id="footer">A nice footer text / more info link</div>
 		</div>
-		<div class="imageContainer">
+		<!-- <div class="imageContainer">
 			<img src="img/sappho-sunnies.jpg" title="" alt="Sappho in sunglasses" />
-		</div>
+		</div> -->
 	</div>
+	
 </body>
 </html>

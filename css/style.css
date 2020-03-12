@@ -1,15 +1,35 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #715496;
     color: #cecece;
     font-family: Quicksand, sans-serif;
 }
 
 #container > div {
-    width: 50%;
+    width: 100%;
     min-height: 100vh;
     box-sizing: border-box;
+}
+
+#background {
+    background: url('../img/sappho-sunnies-bg.png') no-repeat center bottom fixed;
+    background-size: cover;
+    display: block;
+    position: fixed;
+    border: 1px solid #000;
+    height: 100vh;
+    width: 100%;
+    z-index: -1;
+}
+#background::after {
+    content: "";
+    background: rgba(113, 84, 150, 0.75);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
 }
 
 /**************** LEFT SIDE / POEM CONTENT *******************/
@@ -64,6 +84,8 @@ body {
 #header a {
     display: inline-block;
     border: 2px solid #cecece;
+    background-color: #715496;
+    background-color: rgba(113, 84, 150, 0.75);
     color: #cecece;
     padding: 10px 15px;
     margin: 0 8px 16px 8px;
@@ -72,15 +94,15 @@ body {
     transition: background-color 0.2s ease-in-out;
 }
     #header a:hover {
-        background-color: #5a4279;
+        background-color: #715496;
+        background: rgba(113, 84, 150, 1);
     }
     #header a:focus, #header a:active {
         background-color: transparent;
     }
 
 #header label {
-    color: #927DAE;
-    font-weight: bold;
+    color: #cecece;
 }
 #header input {
     height: 40px;
@@ -123,10 +145,40 @@ input[type=number] {
     flex-grow: 1;
     word-break: break-word;
 }
+
 #main #poem {
-    font-style: italic;
-    font-weight: bold;
     font-size: 40px;
+    border: 1px solid #cecece;
+    border-top: none;
+    padding: 120px 150px;
+    position: relative;
+    font-family: 'Roboto Slab', serif;
+}
+#poem::before, #poem::after {
+    border-top: 1px solid #cecece;
+    content: "";
+    width: calc(50% - 150px);
+    display: block;
+    position: absolute;
+    top: 0;
+}
+#poem::before {
+    left: 0;
+}
+#poem::after {
+    right: 0;
+}
+#poem b {
+    font-family: 'Coustard', serif;
+    font-size: 150px;
+    position: absolute;
+    line-height: 50%;
+    margin: 0 auto;
+    right: 0;
+    left: 0;
+    top: 0;
+    display: inline-block;
+    font-weight: normal;
 }
 
 #main #poem span {
@@ -140,28 +192,30 @@ input[type=number] {
 
 
 /**************** MEDIA QUERIES **********************/
-@media screen and (max-width: 1000px) {
-    #header > *, #header div {
-        display: block;
-        width: 100%;
-        text-align: center;
-        
-    }
-    #header h1 {
-        margin: 0;
+@media screen and (max-width: 800px) {
+    #main #poem {
+        padding: 64px 32px;
     }
 }
 
 @media screen and (max-width: 600px) {
-    #container > div {
-        width: 100%;
-        height: auto;
-        min-height: auto;
+    #main #poem {
+        padding: 64px 32px;
+        font-size: 30px;
     }
     
-    .imageContainer {
-        position: static;
+    #poem::before, #poem::after {
+        width: calc(50% - 100px);
     }
+
+    #header h1 {
+        width: 100%;
+    }
+
+    #header > * {
+        text-align: center;
+    }
+
 }
 
 /************* ANIMATIOMS **********************/

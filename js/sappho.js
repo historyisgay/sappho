@@ -16,9 +16,11 @@ function getJson()
 
 function generate()
 {
-	var inlineTag = document.getElementById("poem")
-	//var fragmentTag = document.getElementById(fragments)
-	inlineTag.innerHTML = "";
+	var inlineTag = document.getElementById("poem");
+	
+	// Get and remove all spans
+	var spans = inlineTag.getElementsByTagName("SPAN");
+	while (spans[0]) spans[0].parentNode.removeChild(spans[0]);
 	
 	//we mangle these between goes to keep from getting dups
 	var inline = JSON.parse(inlineJson);
@@ -37,7 +39,7 @@ function generate()
 		remove(inline,index);
 	}
 	//fragmentTag.innerHTML = fragmentsHtml;
-	inlineTag.innerHTML = inlineProse;
+	inlineTag.innerHTML += inlineProse;
 }
 
 function formatText(words, counter)
