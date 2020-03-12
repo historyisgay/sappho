@@ -13,9 +13,9 @@ function getJson()
 	  });
 }
 
-function generate(poem, fragments, number)
+function generate()
 {
-	var inlineTag = document.getElementById(poem)
+	var inlineTag = document.getElementById("poem")
 	//var fragmentTag = document.getElementById(fragments)
 	inlineTag.innerHTML = "";
 	
@@ -23,13 +23,16 @@ function generate(poem, fragments, number)
 	var inline = JSON.parse(inlineJson);
 	
 	var inlineProse = "";
-	var fragmentsHtml = ""
-	var frags = document.getElementById(number).value;
+	//var fragmentsHtml = ""
+	var frags = document.getElementById(fragments).value;
+	if(frags < 1)
+		frags = 1;
+	
 	for(var i = 0; i < frags && inline.length > 0; i++) 
 	{
 		var index = getIndex(inline.length);
 		inlineProse = inlineProse + "<span>" + inline[index].text + "</span>";
-		fragmentsHtml = fragmentsHtml + "<p class='fragmentText'>Fragment " + inline[index].fragment + ": " + inline[index].text + "</p>";
+		//fragmentsHtml = fragmentsHtml + "<p class='fragmentText'>Fragment " + inline[index].fragment + ": " + inline[index].text + "</p>";
 		remove(inline,index);
 	}
 	//fragmentTag.innerHTML = fragmentsHtml;
