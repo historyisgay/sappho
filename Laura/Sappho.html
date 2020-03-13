@@ -95,6 +95,24 @@
 		return index;
 	}    
 
+	function testCollection()
+	{
+		var inline = JSON.parse(inlineJson);
+		
+		for(let i = 0; i < inline.length; i++)
+		{
+			let count = 0;
+			let prose = inline[i];
+			for(let j = 0; j < inline.length; j++)
+			{
+				if(prose.text === inline[j].text)
+					count++;
+			}
+			if(count > 1)
+				console.log(prose.fragment + " " + prose.text);
+		}
+	}
+
 </script>
 </body>
 </html>
