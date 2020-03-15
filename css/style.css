@@ -82,6 +82,14 @@ body {
 }
 
 #header a {
+    text-decoration: none;
+}
+
+#header h1 a {
+    color: inherit;
+}
+
+#header ul a {
     display: inline-block;
     border: 2px solid #cecece;
     background-color: #715496;
@@ -93,11 +101,11 @@ body {
     text-decoration: none;
     transition: background-color 0.2s ease-in-out;
 }
-    #header a:hover {
+    #header ul a:hover {
         background-color: #715496;
         background: rgba(113, 84, 150, 1);
     }
-    #header a:focus, #header a:active {
+    #header ul a:focus, #header a:active {
         background-color: transparent;
     }
 
