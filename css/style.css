@@ -90,6 +90,7 @@ a:hover {
     #header ul a:hover {
         background-color: #715496;
         background: rgba(113, 84, 150, 1);
+        color: #cecece;
     }
     #header ul a:focus, #header a:active {
         background-color: transparent;
