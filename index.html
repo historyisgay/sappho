@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>Sappho Poetry Generator</title>
+	<title>Sappho Poetry Generator | History is Gay Podcast</title>
 
 	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,41 +12,30 @@
 	<script src="./js/sappho.js"></script>
 </head>
 <body>
-	<!-- Okay for the button that creates the poem,  
-	just call generate(Poem div id, fragment div id, number input id)  
-	When we have html and ids I will update this....
-	
-	--Laura
-	
-	PS I will tots delete this later.
-	-->
 	<div id="background"></div>
 	<div id="container">
 		<div class="content">
 			<div id="header">
-				<h1>Sappho Poetry Generator</h1>
-					<div>
-						<label for="fragments">Fragments: </label>
-						<input type="number" value="3" min="1" max="99" id="fragments" name="fragments" />
-					</div>
-					<ul>
-						<li><a href="#" onclick="generate('poem','','fragments')">Generate Poem</a></li>
-					</ul>
+				<h1><a href="https://historyisgay.github.io/sappho" taret="_blank" title="Sappho Poetry Generator">Sappho Poetry Generator</a></h1>
+				<div>
+					<label for="fragments">Fragments: </label>
+					<input type="number" value="3" min="1" max="99" id="fragments" name="fragments" />
+				</div>
+				<ul>
+					<li><a href="#" onclick="generate('poem','','fragments')">Generate Poem</a></li>
+				</ul>
 			</div>
 			<div id="main">
 				<p id="poem">
 					<b>"</b>
-					<!-- Populate fragments into these spans. They will later contain an extra element with fragment number and stuff, probably. -->
-					<span>Lorem ipsum</span>
-					<span>dolor sit amet</span>
-					<span>consectetur adipisicing elit</span>
 				</p>
 			</div>
-			<div id="footer">A nice footer text / more info link</div>
+			<div id="footer">
+				<a href="https://www.historyisgaypodcast.com/" title="History Is Gay-podcast" target="_blank">History is Gay</a>
+				♥
+				<a href="https://en.wikipedia.org/wiki/Sappho" title="Sappho" target="_blank">Sappho</a>
+			</div>
 		</div>
-		<!-- <div class="imageContainer">
-			<img src="img/sappho-sunnies.jpg" title="" alt="Sappho in sunglasses" />
-		</div> -->
 	</div>
 	
 </body>
